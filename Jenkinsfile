@@ -16,18 +16,18 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            echo 'Cleaning up workspace'
+            deleteDir()
+        }
+        success {
+            echo 'Build succeeded!!!'
+
+        }
+        failure {
+            echo 'Build failed!'
+        }
+    }
 }
 
-post {
-    always {
-        echo 'Cleaning up workspace'
-        deleteDir()
-    }
-    success {
-        echo 'Build succeeded!!!'
-
-    }
-    failure {
-        echo 'Build failed!'
-    }
-}
